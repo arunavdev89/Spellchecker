@@ -19,6 +19,10 @@ public class WordCorrection implements Serializable{
 	public void setCorrectSpelling(String correctSpelling) {
 		this.correctSpelling = correctSpelling;
 	}
+	@Override
+	public String toString() {
+		return "WordCorrection [spelledWord=" + spelledWord + ", correctSpelling=" + correctSpelling + "]";
+	}
 	
 	
 }

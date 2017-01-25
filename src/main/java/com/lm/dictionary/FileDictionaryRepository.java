@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
@@ -17,7 +19,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class FileDictionaryRepository implements IDictionaryRepository{
-
+	private static final Logger logger = LoggerFactory.getLogger(FileDictionaryRepository.class);
 	private List<String> dictionaryWords = new ArrayList<>();
 	@Autowired
 	private ApplicationContext context;
@@ -44,6 +46,7 @@ public class FileDictionaryRepository implements IDictionaryRepository{
 	@Override
 	public boolean checkSpelling(String word) {
 		// TODO Auto-generated method stub
+		logger.debug("Checking spelling for word " + word + " against the loaded dictionary");
 		return dictionaryWords.contains(word.toLowerCase());
 	}
 	
